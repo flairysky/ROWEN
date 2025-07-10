@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rowen Education</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+<body>
+  <main>
+    <!-- Correct Hero Video Section -->
+<div class="blog-slider">
+  <h2>BLOG</h2>
+  <div class="slider-content">
+    <button class="arrow left-arrow">&#60;</button>
+    
+    <div class="blog-post active">
+      <div class="blog-image">
+        <img src="assets/images/sample-blog1.jpg" alt="Blog post image 1">
+      </div>
+      <div class="blog-info">
+        <h3 class="blog-title">How to Choose the Right University</h3>
+        <p class="blog-meta">By Daniel N. • July 2025</p>
+        <p class="blog-excerpt">
+          Choosing a university is a big decision. In this post, we break down how to find the best fit for your academic goals and personality...
+        </p>
+        <a href="blog-post1.html" class="read-more">Read More &rarr;</a>
+      </div>
+    </div>
+    
+    <div class="blog-post">
+      <div class="blog-image">
+        <img src="assets/images/sample-blog2.jpg" alt="Blog post image 2">
+      </div>
+      <div class="blog-info">
+        <h3 class="blog-title">Mastering the Application Essay</h3>
+        <p class="blog-meta">By Anna S. • June 2025</p>
+        <p class="blog-excerpt">
+          Your application essay is your chance to stand out. Learn how to tell your unique story and impress admission committees...
+        </p>
+        <a href="blog-post2.html" class="read-more">Read More &rarr;</a>
+      </div>
+    </div>
+    
+    <div class="blog-post">
+      <div class="blog-image">
+        <img src="assets/images/sample-blog3.jpg" alt="Blog post image 3">
+      </div>
+      <div class="blog-info">
+        <h3 class="blog-title">Preparing for University Interviews</h3>
+        <p class="blog-meta">By John D. • May 2025</p>
+        <p class="blog-excerpt">
+          Interviews can be daunting, but with the right preparation you can turn them into your advantage. Here’s what to expect...
+        </p>
+        <a href="blog-post3.html" class="read-more">Read More &rarr;</a>
+      </div>
+    </div>
+    
+    <button class="arrow right-arrow">&#62;</button>
+  </div>
+</div>
+
+
+
+  </main>
+
+  <div id="layout-placeholder"></div>
+
+  <!-- JS for includes -->
+<script>
+  function includeHTML(id, url) {
+    console.log("Trying to load", url);
+    fetch(url)
+      .then(response => {
+        if (!response.ok) throw new Error('Failed to load ' + url + ': ' + response.status);
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById(id).innerHTML = data;
+        console.log('Loaded', url);
+      })
+      .catch(err => {
+        console.error('Error including', url, err);
+      });
+  }
+    includeHTML("layout-placeholder", "layout.html");
+</script>
+</body>
+</html>
