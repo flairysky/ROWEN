@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rowen Education</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+<body>
+  <main>
+    <!-- Correct Hero Video Section -->
+<section class="academic-counseling">
+  <h2>ACADEMIC COUNSELING</h2>
+  <div class="red-underline"></div>
+  <p class="subtitle">
+    We are here to help you achieve your dreams!
+  </p>
+  <div class="counseling-columns">
+    <!-- High School Students -->
+    <div class="counseling-card">
+      <div class="icon-circle">
+        <i class="fas fa-user-graduate"></i>
+      </div>
+      <h3>High School Students</h3>
+      <div class="red-bar"></div>
+      <p>
+        Find the ideal high school and prepare for a successful start to further studies. We will help you choose the right path and develop your potential.
+      </p>
+      <a href="#" class="detail-btn">Detail</a>
+    </div>
+    <!-- Bachelor’s Studies -->
+    <div class="counseling-card">
+      <div class="icon-circle">
+        <i class="fas fa-graduation-cap"></i>
+      </div>
+      <h3>Bachelor’s Students</h3>
+      <div class="red-bar"></div>
+      <p>
+        Discover your options after high school.<br>
+        Choose the university of your dreams and become a successful applicant.
+      </p>
+      <a href="#" class="detail-btn">Detail</a>
+    </div>
+    <!-- Master’s Studies -->
+    <div class="counseling-card">
+      <div class="icon-circle">
+        <i class="fas fa-chart-bar"></i>
+      </div>
+      <h3>Master’s Students</h3>
+      <div class="red-bar"></div>
+      <p>
+        Find the right master’s program, which will allow you to transition smoothly into your professional life and open doors to new career opportunities.
+      </p>
+      <a href="#" class="detail-btn">Detail</a>
+    </div>
+  </div>
+</section>
+
+
+  </main>
+
+  <div id="layout-placeholder"></div>
+
+  <!-- JS for includes -->
+<script>
+  function includeHTML(id, url) {
+    console.log("Trying to load", url);
+    fetch(url)
+      .then(response => {
+        if (!response.ok) throw new Error('Failed to load ' + url + ': ' + response.status);
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById(id).innerHTML = data;
+        console.log('Loaded', url);
+      })
+      .catch(err => {
+        console.error('Error including', url, err);
+      });
+  }
+    includeHTML("layout-placeholder", "layout.html");
+</script>
+</body>
+</html>

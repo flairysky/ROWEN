@@ -1,76 +1,95 @@
 <!DOCTYPE html>
-<html lang=\"en\">
+<html lang="en">
 <head>
-    <meta charset=\"UTF-8\">
-    <meta name=\"viewport\" content=\"width=device-width, initial-scale=1.0\">
-    <title>What We Do - Success Education</title>
-    <link rel=\"stylesheet\" href=\"style.css\">
-    <!-- Google Fonts Example -->
-    <link href=\"https://fonts.googleapis.com/css2?family=Merriweather&family=Inter&display=swap\" rel=\"stylesheet\">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rowen Education</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
 </head>
 <body>
+  <main>
+    <!-- Correct Hero Video Section -->
+<section class="academic-counseling">
+  <h2>AKADEMICKÉ PORADENSTVÍ</h2>
+  <div class="red-underline"></div>
+  <p class="subtitle">
+    Jsme tu od toho abychom Vám pomohli s naplněním Vašich snů!
+  </p>
+  <div class="counseling-columns">
+    <!-- High Schoolers -->
+    <div class="counseling-card">
+      <div class="icon-circle">
+        <!-- You can use a custom SVG or Font Awesome icon here -->
+        <i class="fas fa-user-graduate"></i>
+      </div>
+      <h3>Středoškoláci</h3>
+      <div class="red-bar"></div>
+      <p>
+        Najděte ideální střední školu a připravte se na úspěšný start do dalšího studia. Pomůžeme Vám najít správnou cestu a rozvíjet svůj potenciál.
+      </p>
+      <a href="#" class="detail-btn">Detail</a>
+    </div>
+    <!-- Bachelor -->
+    <div class="counseling-card">
+      <div class="icon-circle">
+        <!-- Use a graduation cap icon for bachelor -->
+        <i class="fas fa-graduation-cap"></i>
+      </div>
+      <h3>Bakalářské studium</h3>
+      <div class="red-bar"></div>
+      <p>
+        Objevte možnosti po střední škole.<br>
+        Vyberte si univerzitu svých snů a staňte se úspěšným uchazečem.
+      </p>
+      <a href="#" class="detail-btn">Detail</a>
+    </div>
+    <!-- Master -->
+    <div class="counseling-card">
+      <div class="icon-circle">
+        <!-- Use a file-chart icon for master (swap for something better if needed) -->
+        <i class="fas fa-chart-bar"></i>
+      </div>
+      <h3>Magisterské studium</h3>
+      <div class="red-bar"></div>
+      <p>
+        Objevte vhodný magisterský program, který Vám umožní plynulý přesun do kariérního života a otevře Vám dveře k novým profesním příležitostem.
+      </p>
+      <a href="#" class="detail-btn">Detail</a>
+    </div>
+  </div>
+</section>
 
-    <!-- Header Section -->
-    <header>
-        <nav>
-            <div class=\"logo\">Success Education</div>
-            <ul class=\"nav-links\">
-                <li><a href=\"index.html\">Home</a></li>
-                <li><a href=\"codelame.html\">What We Do</a></li>
-                <li><a href=\"#institute\">The Institute</a></li>
-                <li><a href=\"#contact\">Contact</a></li>
-            </ul>
-            <!-- Language Selection -->
-            <select id=\"language-select\">
-                <option value=\"en\">English</option>
-                <option value=\"de\">Deutsch</option>
-                <option value=\"cz\">Čeština</option>
-            </select>
-        </nav>
-        <div class=\"hero\">
-            <h1>What We Do</h1>
-            <p>Our approach ensures your path to success is clear, structured, and achievable.</p>
-        </div>
-    </header>
 
-    <!-- Main Content Section -->
-    <section id=\"what-we-do\">
-        <h2>Our Services</h2>
-        <ul>
-            <li><strong>Personalized Counseling:</strong> Tailored guidance based on your individual goals and aspirations.</li>
-            <li><strong>University Selection:</strong> Helping you select the right universities that match your profile and goals.</li>
-            <li><strong>Application Assistance:</strong> Comprehensive support with applications, essays, and motivation letters.</li>
-            <li><strong>Interview Preparation:</strong> Thorough preparation to confidently handle interviews and admission processes.</li>
-        </ul>
-    </section>
+  </main>
 
-    <!-- Testimonials Section -->
-    <section id=\"testimonials\">
-        <h2>Success Stories</h2>
-        <p>Hear directly from students who have achieved their academic dreams with our help.</p>
-        <!-- Placeholder for testimonials -->
-    </section>
+  <div id="layout-placeholder"></div>
 
-    <!-- Contact Section -->
-    <section id=\"contact\">
-        <h2>Ready to Take the Next Step?</h2>
-        <form>
-            <input type=\"text\" placeholder=\"Your Name\" required>
-            <input type=\"email\" placeholder=\"Your Email\" required>
-            <textarea placeholder=\"Your Message\" required></textarea>
-            <button type=\"submit\">Send</button>
-        </form>
-    </section>
-
-    <!-- Footer Section -->
-    <footer>
-        <p>© 2024 Success Education. All rights reserved.</p>
-        <nav>
-            <a href=\"#\">Privacy Policy</a>
-            <a href=\"#\">Terms of Service</a>
-        </nav>
-    </footer>
-
-    <script src=\"script.js\"></script>
+  <!-- JS for includes -->
+<script>
+  function includeHTML(id, url) {
+    console.log("Trying to load", url);
+    fetch(url)
+      .then(response => {
+        if (!response.ok) throw new Error('Failed to load ' + url + ': ' + response.status);
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById(id).innerHTML = data;
+        console.log('Loaded', url);
+      })
+      .catch(err => {
+        console.error('Error including', url, err);
+      });
+  }
+    includeHTML("layout-placeholder", "layout.html");
+</script>
 </body>
 </html>

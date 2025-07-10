@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rowen Education</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+<body>
+  <main>
+    <!-- Correct Hero Video Section -->
+<section class="team-hero">
+  <h2>OUR TEAM</h2>
+  <div class="red-underline"></div>
+  <p class="team-description">
+    Our team consists of people from a wide variety of backgrounds, each bringing experience from many different fields. All members demonstrate proven academic or professional success, combined with a desire to help others achieve their most ambitious dreams. Each of them currently attends or has attended prestigious universities, works or has worked for top global companies, or runs their own businesses worldwide.
+  </p>
+</section>
+
+<section class="team-main">
+  <h3>Part of our Success family...</h3>
+  <div class="red-underline small"></div>
+  <div class="team-members">
+    <div class="team-member">
+      <div class="team-name">Daniel Nádraský</div>
+      <div class="team-role">Founder</div>
+      <div class="team-quote">"Anything is possible, if you<br>consistently and intelligently<br>work hard"</div>
+      <a href="https://www.linkedin.com/in/your-link" target="_blank" class="team-linkedin">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+    <!--
+<div class="team-member">
+  <div class="team-name">Kristýna Jiříková</div>
+  <div class="team-quote">"Right education is the key<br>for success in life"</div>
+  <a href="https://www.linkedin.com/in/your-link" target="_blank" class="team-linkedin">
+    <i class="fab fa-linkedin"></i>
+  </a>
+</div>
+-->
+
+    <div class="team-member">
+      <div class="team-name">Cyrill Schöni</div>
+      <div class="team-quote">"Life is all about priorities"</div>
+      <a href="https://www.linkedin.com/in/your-link" target="_blank" class="team-linkedin">
+        <i class="fab fa-linkedin"></i>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="team-more">
+  <div class="team-more-content">...and many more.</div>
+</section>
+
+  </main>
+
+  <div id="layout-placeholder"></div>
+
+  <!-- JS for includes -->
+<script>
+  function includeHTML(id, url) {
+    console.log("Trying to load", url);
+    fetch(url)
+      .then(response => {
+        if (!response.ok) throw new Error('Failed to load ' + url + ': ' + response.status);
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById(id).innerHTML = data;
+        console.log('Loaded', url);
+      })
+      .catch(err => {
+        console.error('Error including', url, err);
+      });
+  }
+    includeHTML("layout-placeholder", "layout.html");
+</script>
+</body>
+</html>

@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rowen Education</title>
+  <link rel="stylesheet" href="style.css" />
+  <link
+    href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap"
+    rel="stylesheet"
+  />
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"
+  />
+</head>
+<body>
+  <main>
+    <!-- Correct Hero Video Section -->
+<section class="faq-section">
+  <h2>Frequently Asked Questions</h2>
+  <div class="faq-list">
+    <div class="faq-item">
+      <button class="faq-question">
+        What services does Success Education offer?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        Success Education provides guidance for students applying to universities worldwide, offering support with applications, essay editing, and interview preparation.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        Who can use your services?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        Our services are available to students of all ages, as well as parents and guardians seeking support for their children’s academic journey.
+      </div>
+    </div>
+    <div class="faq-item">
+      <button class="faq-question">
+        How do I get started?
+        <span class="faq-icon">+</span>
+      </button>
+      <div class="faq-answer">
+        Simply contact us through our website or email, and we’ll schedule a free introductory consultation to discuss your goals and how we can help.
+      </div>
+    </div>
+    <!-- Add more faq-item blocks as needed -->
+  </div>
+</section>
+
+
+  </main>
+
+  <script>
+document.querySelectorAll('.faq-question').forEach(btn => {
+  btn.addEventListener('click', function() {
+    const item = btn.parentElement;
+    // Optionally close others:
+    document.querySelectorAll('.faq-item').forEach(i => {
+      if(i !== item) i.classList.remove('active');
+    });
+    item.classList.toggle('active');
+  });
+});
+</script>
+
+
+  <div id="layout-placeholder"></div>
+
+  <!-- JS for includes -->
+<script>
+  function includeHTML(id, url) {
+    console.log("Trying to load", url);
+    fetch(url)
+      .then(response => {
+        if (!response.ok) throw new Error('Failed to load ' + url + ': ' + response.status);
+        return response.text();
+      })
+      .then(data => {
+        document.getElementById(id).innerHTML = data;
+        console.log('Loaded', url);
+      })
+      .catch(err => {
+        console.error('Error including', url, err);
+      });
+  }
+    includeHTML("layout-placeholder", "layout.html");
+</script>
+
+</body>
+</html>
