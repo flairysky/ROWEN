@@ -56,19 +56,18 @@ body {
   flex: 1;
   min-width: 0;
   display: flex;
-  overflow: hidden;
+  overflow: visible;
   position: relative;
-  height: 300px;
+  height: auto;
 }
 
 .blog-post {
+  position: relative;
   flex: 0 0 100%;
   min-width: 100%;
   opacity: 0;
   transform: scale(0.96) translateX(20px);
   transition: all 0.5s cubic-bezier(.5,.2,.2,1);
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
   background: #fff;
   padding: 24px 18px;
   box-sizing: border-box;
@@ -77,6 +76,7 @@ body {
   z-index: 0;
   pointer-events: none;
 }
+
 .blog-post.active {
   opacity: 1;
   transform: scale(1) translateX(0);
