@@ -85,43 +85,4 @@ document.querySelector('.right-arrow').onclick = function() {
   updateTestimonial(current);
 };
 
-
-document.querySelectorAll('.faq-question').forEach(btn => {
-  btn.addEventListener('click', function() {
-    const item = btn.parentElement;
-    // Optionally close others:
-    document.querySelectorAll('.faq-item').forEach(i => {
-      if(i !== item) i.classList.remove('active');
-    });
-    item.classList.toggle('active');
-  });
-});
-
-
-document.addEventListener('DOMContentLoaded', function() {
-  const posts = document.querySelectorAll('.blog-post');
-  const left = document.querySelector('.blog-slider .left-arrow');
-  const right = document.querySelector('.blog-slider .right-arrow');
-  let current = 0;
-
-  function showPost(index) {
-    posts.forEach((post, i) => {
-      post.classList.toggle('active', i === index);
-    });
-  }
-
-  left.addEventListener('click', () => {
-    current = (current - 1 + posts.length) % posts.length;
-    showPost(current);
-  });
-
-  right.addEventListener('click', () => {
-    current = (current + 1) % posts.length;
-    showPost(current);
-  });
-
-  // Initialize
-  showPost(current);
-});
 </script>
-

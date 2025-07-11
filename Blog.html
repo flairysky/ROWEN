@@ -15,65 +15,118 @@
   />
 </head>
 <body>
-  <main>
-    <!-- Correct Hero Video Section -->
-<div class="blog-slider">
-  <h2>BLOG</h2>
-  <div class="slider-content">
-    <button class="arrow left-arrow">&#60;</button>
-    
-    <div class="blog-post active">
-      <div class="blog-image">
-        <img src="assets/images/sample-blog1.jpg" alt="Blog post image 1">
+<div class="blog-slider-container">
+    <h2 class="blog-title-main">BLOG</h2>
+    <div class="blog-slider">
+      <button class="blog-arrow left" id="prevBtn"><i class="fas fa-chevron-left"></i></button>
+      <div class="blog-posts-wrapper" id="blogPostsWrapper">
+        <!-- JS will insert blog posts here -->
       </div>
-      <div class="blog-info">
-        <h3 class="blog-title">How to Choose the Right University</h3>
-        <p class="blog-meta">By Daniel N. • July 2025</p>
-        <p class="blog-excerpt">
-          Choosing a university is a big decision. In this post, we break down how to find the best fit for your academic goals and personality...
-        </p>
-        <a href="blog-post1.html" class="read-more">Read More &rarr;</a>
-      </div>
+      <button class="blog-arrow right" id="nextBtn"><i class="fas fa-chevron-right"></i></button>
     </div>
-    
-    <div class="blog-post">
-      <div class="blog-image">
-        <img src="assets/images/sample-blog2.jpg" alt="Blog post image 2">
-      </div>
-      <div class="blog-info">
-        <h3 class="blog-title">Mastering the Application Essay</h3>
-        <p class="blog-meta">By Anna S. • June 2025</p>
-        <p class="blog-excerpt">
-          Your application essay is your chance to stand out. Learn how to tell your unique story and impress admission committees...
-        </p>
-        <a href="blog-post2.html" class="read-more">Read More &rarr;</a>
-      </div>
-    </div>
-    
-    <div class="blog-post">
-      <div class="blog-image">
-        <img src="assets/images/sample-blog3.jpg" alt="Blog post image 3">
-      </div>
-      <div class="blog-info">
-        <h3 class="blog-title">Preparing for University Interviews</h3>
-        <p class="blog-meta">By John D. • May 2025</p>
-        <p class="blog-excerpt">
-          Interviews can be daunting, but with the right preparation you can turn them into your advantage. Here’s what to expect...
-        </p>
-        <a href="blog-post3.html" class="read-more">Read More &rarr;</a>
-      </div>
-    </div>
-    
-    <button class="arrow right-arrow">&#62;</button>
+    <div class="blog-dots" id="blogDots"></div>
   </div>
-</div>
+  <script src="blog.js"></script>
 
 
-
-  </main>
 
   <div id="layout-placeholder"></div>
 
+
+  <script>
+    // Blog post data -- you can add more posts here!
+const blogPosts = [
+  {
+    title: "The Future of Education: Individualized & Real-World Ready",
+    date: "11 July 2025",
+    content: `
+      <p>
+        As the world rapidly evolves, it's clear that traditional hard skills alone are no longer enough for today's students. Modern education must adapt, offering individualized learning that matches each student's pace and abilities.
+      </p>
+      <p>
+        Our curriculum at Rowen Education draws on proven methods and the experiences of leading professionals. We ensure that students are prepared not just for exams, but for the real challenges they'll face in their future careers.
+      </p>
+    `
+  },
+  {
+    title: "Why Soft Skills Matter More Than Ever",
+    date: "10 July 2025",
+    content: `
+      <p>
+        In today's interconnected world, skills like critical thinking, communication, and adaptability have become as important as technical knowledge. Rowen Education integrates soft skills into every aspect of learning, preparing our students to thrive in diverse environments.
+      </p>
+      <p>
+        We believe education is more than memorizing facts—it's about becoming well-rounded individuals who can make a difference.
+      </p>
+    `
+  },
+  {
+    title: "Rowen Education: Our Story",
+    date: "8 July 2025",
+    content: `
+      <p>
+        Rowen Education began with a vision: to help students achieve their dreams through personalized, high-quality academic guidance. Our founder's journey from supporting friends to advising hundreds of students shaped our mission—to make academic success accessible to all.
+      </p>
+      <p>
+        Join us as we continue to empower the next generation of thinkers, creators, and leaders!
+      </p>
+    `
+  }
+];
+
+// HTML Elements
+const postsWrapper = document.getElementById('blogPostsWrapper');
+const dotsWrapper = document.getElementById('blogDots');
+let currentIndex = 0;
+
+// Render blog posts
+blogPosts.forEach((post, i) => {
+  const div = document.createElement('div');
+  div.className = 'blog-post' + (i === 0 ? ' active' : '');
+  div.innerHTML = `
+    <div class="blog-post-title">${post.title}</div>
+    <div class="blog-post-date">${post.date}</div>
+    <div class="blog-post-content">${post.content}</div>
+  `;
+  postsWrapper.appendChild(div);
+
+  // Dots
+  const dot = document.createElement('span');
+  dot.className = 'blog-dot' + (i === 0 ? ' active' : '');
+  dot.onclick = () => showPost(i);
+  dotsWrapper.appendChild(dot);
+});
+
+// Navigation
+function showPost(idx) {
+  const posts = postsWrapper.querySelectorAll('.blog-post');
+  const dots = dotsWrapper.querySelectorAll('.blog-dot');
+  posts.forEach((p, i) => {
+    p.classList.toggle('active', i === idx);
+  });
+  dots.forEach((d, i) => {
+    d.classList.toggle('active', i === idx);
+  });
+  currentIndex = idx;
+  updateArrowStates();
+}
+
+function updateArrowStates() {
+  document.getElementById('prevBtn').disabled = currentIndex === 0;
+  document.getElementById('nextBtn').disabled = currentIndex === blogPosts.length - 1;
+}
+
+// Arrows
+document.getElementById('prevBtn').onclick = () => {
+  if (currentIndex > 0) showPost(currentIndex - 1);
+};
+document.getElementById('nextBtn').onclick = () => {
+  if (currentIndex < blogPosts.length - 1) showPost(currentIndex + 1);
+};
+
+updateArrowStates();
+
+  </script>
   <!-- JS for includes -->
 <script>
   function includeHTML(id, url) {

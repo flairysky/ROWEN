@@ -88,6 +88,43 @@
 
   </main>
 
+  <script>
+const testimonials = [
+  {
+    author: "Martin",
+    text: `Podpora Success Education ve výběru vysoké školy a následně během přípravy mé přihlášky na studium drasticky zlepšila její celkovou kvalitu a pomohla mi dostat se na univerzitu mých snů.<br><br>
+    Především podpora lidí, kteří byly v přihlašování na nejlepší vysoké školy úspěšní, mi dodala tížený klid v průběhu přihlašovacího procesu.`
+  },
+  {
+    author: "Tereza",
+    text: `Díky Success Education jsem získala jasnou představu o tom, jaké kroky musím udělat, abych byla úspěšná při přijímacím řízení. Oceňuji jejich osobní přístup a podporu během celého procesu.`
+  },
+  {
+    author: "David",
+    text: `Velice si vážím trpělivosti a profesionality týmu Success Education. Pomohli mi se vším od výběru školy až po psaní motivačního dopisu.`
+  }
+];
+
+let current = 0;
+
+function updateTestimonial(idx) {
+  const testimonial = testimonials[idx];
+  document.querySelector('.testimonial-author').textContent = testimonial.author;
+  document.querySelector('.testimonial-text').innerHTML = testimonial.text;
+}
+
+document.querySelector('.left-arrow').onclick = function() {
+  current = (current - 1 + testimonials.length) % testimonials.length;
+  updateTestimonial(current);
+};
+
+document.querySelector('.right-arrow').onclick = function() {
+  current = (current + 1) % testimonials.length;
+  updateTestimonial(current);
+};
+
+</script>
+
   <div id="layout-placeholder"></div>
 
   <!-- JS for includes -->
