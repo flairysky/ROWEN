@@ -1,3 +1,131 @@
+/* Hamburger only visible on mobile */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2.2em;
+  color: #082741;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .hamburger {
+    display: block;
+    z-index: 2002;
+    margin-left: auto;
+  }
+  .nav-links {
+    display: none !important;
+  }
+}
+
+/* Mobile Nav Overlay */
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #082741;
+  color: #fff;
+  z-index: 2001;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  padding: 0;
+  transition: opacity 0.3s;
+  overflow-y: auto;
+}
+
+.mobile-nav-overlay.open {
+  display: flex;
+}
+
+.mobile-nav-close {
+  position: absolute;
+  top: 20px; right: 24px;
+  font-size: 2.6em;
+  color: #fff;
+  background: none;
+  border: none;
+  z-index: 2100;
+  cursor: pointer;
+}
+
+.mobile-nav-list {
+  width: 100%;
+  margin: 80px 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mobile-nav-list > li {
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+}
+
+.mobile-nav-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 22px 28px;
+  background: none;
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.18em;
+  font-weight: 600;
+  border: none;
+  text-align: left;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  outline: none;
+}
+
+.mobile-nav-section:after {
+  content: '\25BC';
+  font-size: 1.15em;
+  margin-left: auto;
+  transition: transform 0.2s;
+}
+.mobile-nav-section.active:after {
+  content: '\25B2'; /* Arrow up */
+}
+
+/* Dropdown */
+.mobile-nav-dropdown {
+  display: none;
+  flex-direction: column;
+  background: #07213a;
+  padding: 0 22px 10px 40px;
+  animation: fadeIn 0.2s;
+}
+.mobile-nav-dropdown.show {
+  display: flex;
+}
+.mobile-nav-dropdown li a {
+  color: #fff;
+  font-size: 1em;
+  padding: 9px 0;
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+  border-radius: 6px;
+  transition: background 0.16s;
+}
+.mobile-nav-dropdown li a:hover {
+  background: #123158;
+  color: #ffca6c;
+}
+
+@media (min-width: 900px) {
+  .mobile-nav-overlay {
+    display: none !important;
+  }
+  .hamburger {
+    display: none !important;
+  }
+}
+
+
+
+
 body {
   background: #f4f7fb;
   font-family: 'Playfair Display', serif;
@@ -1915,4 +2043,166 @@ html, body {
     font-size: 14px;
     padding: 0 !important;
   }
+}
+
+
+
+
+
+
+/* Hamburger only visible on mobile */
+.hamburger {
+  display: none;
+  background: none;
+  border: none;
+  font-size: 2.2em;
+  color: #082741;
+  cursor: pointer;
+}
+
+@media (max-width: 900px) {
+  .hamburger {
+    display: block;
+    z-index: 2002;
+    margin-left: auto;
+  }
+  .nav-links {
+    display: none !important;
+  }
+}
+
+/* Mobile Nav Overlay */
+.mobile-nav-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: #082741;
+  color: #fff;
+  z-index: 2001;
+  width: 100vw;
+  height: 100vh;
+  flex-direction: column;
+  padding: 0;
+  transition: opacity 0.3s;
+  overflow-y: auto;
+}
+
+.mobile-nav-overlay.open {
+  display: flex;
+}
+
+.mobile-nav-close {
+  position: absolute;
+  top: 20px; right: 24px;
+  font-size: 2.6em;
+  color: #fff;
+  background: none;
+  border: none;
+  z-index: 2100;
+  cursor: pointer;
+}
+
+.mobile-nav-list {
+  width: 100%;
+  margin: 80px 0 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mobile-nav-list > li {
+  border-bottom: 1px solid rgba(255,255,255,0.18);
+}
+
+.mobile-nav-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 22px 28px;
+  background: none;
+  color: #fff;
+  font-family: 'Playfair Display', serif;
+  font-size: 1.18em;
+  font-weight: 600;
+  border: none;
+  text-align: left;
+  letter-spacing: 0.12em;
+  cursor: pointer;
+  outline: none;
+}
+
+.mobile-nav-section:after {
+  content: '\25BC';
+  font-size: 1.15em;
+  margin-left: auto;
+  transition: transform 0.2s;
+}
+.mobile-nav-section.active:after {
+  content: '\25B2'; /* Arrow up */
+}
+
+/* Dropdown */
+.mobile-nav-dropdown {
+  display: none;
+  flex-direction: column;
+  background: #07213a;
+  padding: 0 22px 10px 40px;
+  animation: fadeIn 0.2s;
+}
+.mobile-nav-dropdown.show {
+  display: flex;
+}
+.mobile-nav-dropdown li a {
+  color: #fff;
+  font-size: 1em;
+  padding: 9px 0;
+  text-decoration: none;
+  font-family: 'Playfair Display', serif;
+  border-radius: 6px;
+  transition: background 0.16s;
+}
+.mobile-nav-dropdown li a:hover {
+  background: #123158;
+  color: #ffca6c;
+}
+
+@media (min-width: 900px) {
+  .mobile-nav-overlay {
+    display: none !important;
+  }
+  .hamburger {
+    display: none !important;
+  }
+}
+
+
+/* Desktop */
+.nav-links {
+  display: flex;
+  gap: 32px;
+}
+
+/* Mobile */
+@media (max-width: 900px) {
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px; /* or wherever your nav is */
+    left: 0;
+    width: 100vw;
+    background: #003366; /* adjust as needed */
+    z-index: 10;
+  }
+  .nav-links.open {
+    display: flex;
+  }
+  .hamburger {
+    display: block; /* show hamburger on mobile */
+  }
+}
+
+/* Desktop hamburger */
+.hamburger {
+  display: none; /* hide hamburger on desktop */
 }

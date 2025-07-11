@@ -1,4 +1,5 @@
 <head>
+  <link rel="icon" type="image/png" href="assets/images/2crop.PNG">
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <link rel="icon" type="image/png" href="assets/images/2crop.PNG">
@@ -27,7 +28,11 @@
             <img src="assets/images/4crop.PNG" alt="Success Education Logo" />
           </a>
         </div>
-        <ul class="nav-links">
+        <!-- Hamburger for mobile -->
+        <button class="hamburger" id="hamburger-btn" aria-label="Open Menu">
+          <i class="fas fa-bars"></i>
+        </button>
+        <ul class="nav-links" id="navLinks">
           <li class="dropdown">
             <a href="services.html">Services</a>
             <ul class="dropdown-content">
@@ -57,36 +62,37 @@
           </li>
           <li class="dropdown">
             <a href="theinstitute.html">Institute</a>
-            <!--<ul class="dropdown-content">
+            <!--
+            <ul class="dropdown-content">
               <li><a href="#overview">Overview</a></li>
               <li><a href="#programs">Programs</a></li>
               <li><a href="#apply">Apply</a></li>
-            </ul>-->
+            </ul>
+            -->
           </li>
         </ul>
       </div>
-
       <div class="nav-right">
-  <div class="cta-wrapper">
-    <a href="contactformstudent.html">
-      <button class="cta-btn">Get in Touch</button>
-    </a>
-  </div>
-</div>
-        
-        <div class="language-wrapper">
-          <label for="language-select">Language</label>
-          <select id="language-select">
-            <option value="en">English</option>
-            <!--<option value="de">Deutsch</option>
-            <option value="cz">Čeština</option>--!>
-          </select>
+        <div class="cta-wrapper">
+          <a href="contactformstudent.html">
+            <button class="cta-btn">Get in Touch</button>
+          </a>
         </div>
+      </div>
+      <div class="language-wrapper">
+        <label for="language-select">Language</label>
+        <select id="language-select">
+          <option value="en">English</option>
+          <!--
+          <option value="de">Deutsch</option>
+          <option value="cz">Čeština</option>
+          -->
+        </select>
       </div>
     </nav>
   </header>
 
-  <body>
+
 
     <script>
       const hamburger = document.getElementById('hamburger-btn');
@@ -95,6 +101,47 @@
         navLinks.classList.toggle('open');
       });
     </script>
+    <script>
+    // Hamburger toggle for nav on mobile
+    const hamburger = document.getElementById('hamburger-btn');
+    const navLinks = document.getElementById('navLinks');
+
+    hamburger.addEventListener('click', () => {
+      navLinks.classList.toggle('open');
+    });
+
+    // Dropdown toggle for mobile (on click)
+    document.querySelectorAll('.dropdown > a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (window.innerWidth <= 900) {
+          e.preventDefault();
+          // Close all others
+          document.querySelectorAll('.dropdown-content').forEach(ul => {
+            if (ul !== this.nextElementSibling) ul.style.display = 'none';
+          });
+          // Toggle this one
+          const dropdown = this.nextElementSibling;
+          dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+        }
+      });
+    });
+
+    // Optional: Close menu when clicking outside (mobile only)
+    window.addEventListener('click', function(e) {
+      if (window.innerWidth <= 900 && !e.target.closest('.nav-links') && !e.target.closest('#hamburger-btn')) {
+        navLinks.classList.remove('open');
+        document.querySelectorAll('.dropdown-content').forEach(ul => ul.style.display = 'none');
+      }
+    });
+
+    // Always reset menu on resize
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 900) {
+        navLinks.classList.remove('open');
+        document.querySelectorAll('.dropdown-content').forEach(ul => ul.style.display = '');
+      }
+    });
+  </script>
   </body>
 
   <footer>
