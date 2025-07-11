@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <script defer src="https://cloud.umami.is/script.js" data-website-id="cd589eb8-8af3-4bb7-9186-e7242120e57c"></script>
+  
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Rowen Education</title>
@@ -126,26 +126,73 @@ document.querySelector('.right-arrow').onclick = function() {
 
 </script>
 
-  <div id="layout-placeholder"></div>
+ <div id="layout-placeholder"></div>
+<div id="content-to-load" style="display:none;">
+  <!-- This is your unique content for this page -->
+</div>
 
-  <!-- JS for includes -->
 <script>
-  function includeHTML(id, url) {
-    console.log("Trying to load", url);
-    fetch(url)
-      .then(response => {
-        if (!response.ok) throw new Error('Failed to load ' + url + ': ' + response.status);
-        return response.text();
-      })
-      .then(data => {
-        document.getElementById(id).innerHTML = data;
-        console.log('Loaded', url);
-      })
-      .catch(err => {
-        console.error('Error including', url, err);
-      });
+function includeHTML(id, url, cb) {
+  fetch(url)
+    .then(response => {
+      if (!response.ok) throw new Error('Failed to load ' + url + ': ' + response.status);
+      return response.text();
+    })
+    .then(data => {
+      document.getElementById(id).innerHTML = data;
+      if (cb) cb();
+    })
+    .catch(err => {
+      console.error('Error including', url, err);
+    });
+}
+
+// 1. Load the layout
+includeHTML("layout-placeholder", "layout.html", function() {
+  // 2. After layout loads, put this page's content into the layout's <main>
+  var content = document.getElementById("content-to-load").innerHTML;
+  var layoutMain = document.querySelector("#layout-placeholder main");
+  if (layoutMain) {
+    layoutMain.innerHTML = content;
   }
-    includeHTML("layout-placeholder", "layout.html");
+});
 </script>
+<script>
+  // Hamburger menu toggle
+  const hamburger = document.getElementById('hamburger-btn');
+  const navLinks = document.getElementById('navLinks');
+  if (hamburger && navLinks) {
+    hamburger.addEventListener('click', (e) => {
+      e.stopPropagation();
+      navLinks.classList.toggle('open');
+    });
+    // Dropdown toggle for mobile (click to open)
+    document.querySelectorAll('.dropdown > a').forEach(link => {
+      link.addEventListener('click', function(e) {
+        if (window.innerWidth <= 900) {
+          e.preventDefault();
+          document.querySelectorAll('.dropdown-content').forEach(ul => {
+            if (ul !== this.nextElementSibling) ul.style.display = 'none';
+          });
+          const dropdown = this.nextElementSibling;
+          dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+        }
+      });
+    });
+    window.addEventListener('click', function(e) {
+      if (window.innerWidth <= 900 && !e.target.closest('.nav-links') && !e.target.closest('#hamburger-btn')) {
+        navLinks.classList.remove('open');
+        document.querySelectorAll('.dropdown-content').forEach(ul => ul.style.display = 'none');
+      }
+    });
+    window.addEventListener('resize', function() {
+      if (window.innerWidth > 900) {
+        navLinks.classList.remove('open');
+        document.querySelectorAll('.dropdown-content').forEach(ul => ul.style.display = '');
+      }
+    });
+  }
+</script>
+
 </body>
 </html>
