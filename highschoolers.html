@@ -9,14 +9,15 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
-  <!-- ✅ Add this wrapper -->
-  <div id="page-wrapper">
-    <div id="layout-placeholder"></div>
-  </div>
-
-  <!-- Hidden content to be injected -->
+  <div id="layout-placeholder"></div>
   <div id="content-to-load" style="display:none;">
-    <!-- Hero and main content go here -->
+    <section class="team-hero">
+  <h2>HIGH SCHOOL STUDIES</h2>
+  <div class="red-underline"></div>
+  </section>
+  <section class="description">
+  
+  </section>
   </div>
 
   <script>
@@ -30,7 +31,9 @@
           document.getElementById(id).innerHTML = data;
           if (cb) cb();
         })
-        .catch(err => console.error('Error including', url, err));
+        .catch(err => {
+          console.error('Error including', url, err);
+        });
     }
 
     function initNavEvents() {
@@ -68,11 +71,9 @@
     }
 
     includeHTML("layout-placeholder", "layout.html", function() {
-      var content = document.getElementById("content-to-load").innerHTML;
-      var layoutMain = document.querySelector("#layout-placeholder main");
-      if (layoutMain) {
-        layoutMain.innerHTML = content;
-      }
+      const content = document.getElementById("content-to-load").innerHTML;
+      const layoutMain = document.querySelector("#layout-placeholder main");
+      if (layoutMain) layoutMain.innerHTML = content;
       initNavEvents();
     });
   </script>

@@ -11,15 +11,10 @@
 <body>
   <div id="layout-placeholder"></div>
   <div id="content-to-load" style="display:none;">
-    
-      // Hero goes the main content
-    
+    <!-- Main content goes here -->
   </div>
 
-
-  
   <script>
-    // Function to load layout.html and insert subpage content
     function includeHTML(id, url, cb) {
       fetch(url)
         .then(response => {
@@ -35,7 +30,6 @@
         });
     }
 
-    // Your navigation JS logic as a function
     function initNavEvents() {
       const hamburger = document.getElementById('hamburger-btn');
       const navLinks = document.getElementById('navLinks');
@@ -70,17 +64,13 @@
       });
     }
 
-    // 1. Load layout.html, then inject subpage content and initialize nav events
     includeHTML("layout-placeholder", "layout.html", function() {
-      // Insert unique page content into layout's <main>
-      var content = document.getElementById("content-to-load").innerHTML;
-      var layoutMain = document.querySelector("#layout-placeholder main");
-      if (layoutMain) {
-        layoutMain.innerHTML = content;
-      }
-      // Now nav exists! Initialize nav/hamburger JS
+      const content = document.getElementById("content-to-load").innerHTML;
+      const layoutMain = document.querySelector("#layout-placeholder main");
+      if (layoutMain) layoutMain.innerHTML = content;
       initNavEvents();
     });
   </script>
 </body>
 </html>
+

@@ -9,73 +9,73 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
 </head>
 <body>
+  <!-- Layout placeholder where layout.html will be injected -->
   <div id="layout-placeholder"></div>
 
-  <!-- Hidden subpage content (to be injected) -->
+  <!-- Hidden content that gets injected into layout's <main> -->
   <div id="content-to-load" style="display:none;">
-    
-      <div class="hero-video-container">
-        <video autoplay muted loop class="background-video">
-          <source src="assets/videos/video1.mp4" type="video/mp4">
-          Your browser doesn't support HTML5 video.
-        </video>
-        <div class="hero-overlay">
-          <h1>Making Success Attainable</h1>
-          <p>Design your academic journey into a memorable experience.</p>
-          <button class="cta-btn">Start a Free Consultation</button>
+    <div class="content-container">
+    <div class="hero-video-container">
+      <video autoplay muted loop class="background-video">
+        <source src="assets/videos/video1.mp4" type="video/mp4">
+        Your browser doesn't support HTML5 video.
+      </video>
+      <div class="hero-overlay">
+        <h1>Making Success Attainable</h1>
+        <p>Design your academic journey into a memorable experience.</p>
+        <button class="cta-btn">Start a Free Consultation</button>
+      </div>
+    </div>
+
+    <section id="process">
+      <h2 class="process-heading">HOW THE COUNSELLING WORKS</h2>
+      <div class="process-steps">
+        <div class="step-box">
+          <img src="assets/icons/pen.png" alt="Contact Icon" class="step-icon">
+          <h3>First Contact</h3>
+          <p>Fill in the contact form, give us a call, or send an email — we’ll be happy to answer all your questions.</p>
+        </div>
+        <div class="arrow-icon">➜</div>
+        <div class="step-box">
+          <img src="assets/icons/checklist.png" alt="Consultation Icon" class="step-icon">
+          <h3>Non-Binding Consultation</h3>
+          <p>One of our advisors will connect with you online or offline and discuss all the possible study options with you — without any commitment.</p>
+        </div>
+        <div class="arrow-icon">➜</div>
+        <div class="step-box">
+          <img src="assets/icons/people.png" alt="Application Icon" class="step-icon">
+          <h3>Academic Prep</h3>
+          <p>Based on your goal, we’ll assemble a team of advisors and mentors to guide you through the academic journey.</p>
+        </div>
+        <div class="arrow-icon">➜</div>
+        <div class="step-box">
+          <img src="assets/icons/teach.png" alt="Submit Icon" class="step-icon">
+          <h3>Academic guidance</h3>
+          <p>Once your target is set, our team will support you on every step of your unique academic journey.</p>
         </div>
       </div>
-
-      <section id="process">
-        <h2 class="process-heading">HOW THE COUNSELLING WORKS</h2>
-        <div class="process-steps">
-          <div class="step-box">
-            <img src="assets/icons/pen.png" alt="Contact Icon" class="step-icon">
-            <h3>First Contact</h3>
-            <p>Fill in the contact form, give us a call, or send an email — we’ll be happy to answer all your questions.</p>
-          </div>
-          <div class="arrow-icon">➜</div>
-          <div class="step-box">
-            <img src="assets/icons/checklist.png" alt="Consultation Icon" class="step-icon">
-            <h3>Non-Binding Consultation</h3>
-            <p>One of our advisors will connect with you online or offline and discuss all the possible study options with you — without any commitment.</p>
-          </div>
-          <div class="arrow-icon">➜</div>
-          <div class="step-box">
-            <img src="assets/icons/people.png" alt="Application Icon" class="step-icon">
-            <h3>Academic Prep</h3>
-            <p>Based on your goal, we’ll assemble a team of advisors and mentors to guide you through the academic journey.</p>
-          </div>
-          <div class="arrow-icon">➜</div>
-          <div class="step-box">
-            <img src="assets/icons/teach.png" alt="Submit Icon" class="step-icon">
-            <h3>Academic guidance</h3>
-            <p>Once your target is set, you our team will support you on every step of your unique academic journey.</p>
-          </div>
-        </div>
-        <div class="start-btn-wrapper">
-          <button class="cta-btn">Let's Start !</button>
-        </div>
-      </section>
-
-      <div class="testimonial-slider">
-        <h2>WHAT STUDENTS SAY ABOUT US</h2>
-        <div class="slider-content">
-          <button class="arrow left-arrow">&#60;</button>
-          <div class="testimonial">
-            <span class="testimonial-author">Martin</span>
-            <span class="quote-mark">&#8221;</span>
-            <p class="testimonial-text">
-              The support from Success Education in choosing a university and later during my application preparations significantly improved the overall quality and helped me get accepted to the university of my dreams.<br><br>
-              Above all, the support from people who had been successful in applying to top universities gave me the much-needed peace of mind during the entire application process.
-            </p>
-          </div>
-          <button class="arrow right-arrow">&#62;</button>
-        </div>
+      <div class="start-btn-wrapper">
+        <button class="cta-btn">Let's Start !</button>
       </div>
-    
+    </section>
+
+    <div class="testimonial-slider">
+      <h2>WHAT STUDENTS SAY ABOUT US</h2>
+      <div class="slider-content">
+        <button class="arrow left-arrow">&#60;</button>
+        <div class="testimonial">
+          <span class="testimonial-author">Martin</span>
+          <span class="quote-mark">&#8221;</span>
+          <p class="testimonial-text">
+            The support from Success Education in choosing a university and later during my application preparations significantly improved the overall quality and helped me get accepted to the university of my dreams.<br><br>
+            Above all, the support from people who had been successful in applying to top universities gave me the much-needed peace of mind during the entire application process.
+          </p>
+        </div>
+        <button class="arrow right-arrow">&#62;</button>
+      </div>
+    </div>
   </div>
-
+</div>
   <script>
     function includeHTML(id, url, cb) {
       fetch(url)
@@ -126,22 +126,18 @@
       });
     }
 
-    // ✅ Load layout and THEN run nav + testimonial logic
-    includeHTML("layout-placeholder", "layout.html", function() {
+    includeHTML("layout-placeholder", "layout.html", function () {
       const content = document.getElementById("content-to-load").innerHTML;
       const layoutMain = document.querySelector("#layout-placeholder main");
-      if (layoutMain) {
-        layoutMain.innerHTML = content;
-      }
+      if (layoutMain) layoutMain.innerHTML = content;
 
       initNavEvents();
 
-      // ✅ Testimonial script inside callback
+      // Testimonial Slider Logic
       const testimonials = [
         {
           author: "Martin",
-          text: `Podpora Success Education ve výběru vysoké školy a následně během přípravy mé přihlášky na studium drasticky zlepšila její celkovou kvalitu a pomohla mi dostat se na univerzitu mých snů.<br><br>
-          Především podpora lidí, kteří byly v přihlašování na nejlepší vysoké školy úspěšní, mi dodala tížený klid v průběhu přihlašovacího procesu.`
+          text: `The support from Success Education in choosing a university and later during my application preparations significantly improved the overall quality and helped me get accepted to the university of my dreams.<br><br>Above all, the support from people who had been successful in applying to top universities gave me the much-needed peace of mind during the entire application process.`
         },
         {
           author: "Tereza",
@@ -154,7 +150,6 @@
       ];
 
       let current = 0;
-
       function updateTestimonial(idx) {
         const testimonial = testimonials[idx];
         document.querySelector('.testimonial-author').textContent = testimonial.author;
@@ -165,7 +160,6 @@
         current = (current - 1 + testimonials.length) % testimonials.length;
         updateTestimonial(current);
       };
-
       document.querySelector('.right-arrow').onclick = function () {
         current = (current + 1) % testimonials.length;
         updateTestimonial(current);
@@ -176,4 +170,3 @@
   </script>
 </body>
 </html>
-

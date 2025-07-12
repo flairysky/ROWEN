@@ -10,41 +10,34 @@
 </head>
 <body>
   <div id="layout-placeholder"></div>
-
-  <!-- Hidden page-specific content -->
   <div id="content-to-load" style="display:none;">
-    
-      <section class="faq-section">
-  <h2>Current Openings</h2>
-  <div class="faq-list">
-
-    <div class="faq-item">
-      <button class="faq-question">
-        Technical Co-founder
-        <span class="faq-icon">+</span>
-      </button>
-      <div class="faq-answer">
-          Are you passionate about the use of technology in the education sector and eager to become part of an ambitious team of serial founders?
-          <br>
-          We are building technological tools to make students’ educational journeys easier, more exciting, and more fun — and we’re looking for someone experienced in software development to join us.
-          <br>
-          We are primarily seeking support in backend development and Python implementation, with a focus on creating user-friendly solutions.
-          <br>
-          Interested? Send us your CV along with a brief description of your motivation and your GitHub profile to info@roweneducation.com.
-          <br>
-          We look forward to hearing from you!
-          <br>
-          The Rowen Team
+    <section class="faq-section">
+      <h2>Current Openings</h2>
+      <div class="faq-list">
+        <div class="faq-item">
+          <button class="faq-question">
+            Technical Co-founder
+            <span class="faq-icon">+</span>
+          </button>
+          <div class="faq-answer">
+            Are you passionate about the use of technology in the education sector and eager to become part of an ambitious team of serial founders?
+            <br>
+            We are building technological tools to make students’ educational journeys easier, more exciting, and more fun — and we’re looking for someone experienced in software development to join us.
+            <br>
+            We are primarily seeking support in backend development and Python implementation, with a focus on creating user-friendly solutions.
+            <br>
+            Interested? Send us your CV along with a brief description of your motivation and your GitHub profile to info@roweneducation.com.
+            <br>
+            We look forward to hearing from you!
+            <br>
+            The Rowen Team
+          </div>
+        </div>
       </div>
-    </div>
-
-  </div>
-</section>
-    
+    </section>
   </div>
 
   <script>
-    // Function to load layout.html and insert subpage content
     function includeHTML(id, url, cb) {
       fetch(url)
         .then(response => {
@@ -60,7 +53,6 @@
         });
     }
 
-    // Your navigation JS logic
     function initNavEvents() {
       const hamburger = document.getElementById('hamburger-btn');
       const navLinks = document.getElementById('navLinks');
@@ -95,24 +87,36 @@
       });
     }
 
-    // ✅ Inject layout, then run nav + FAQ toggle logic
-    includeHTML("layout-placeholder", "layout.html", function () {
+    function initCareersFAQEvents() {
+      document.querySelectorAll('.faq-question').forEach(btn => {
+        btn.addEventListener('click', function () {
+          const parent = btn.closest('.faq-item');
+          const answer = parent.querySelector('.faq-answer');
+          const icon = btn.querySelector('.faq-icon');
+          // Toggle open state
+          if (answer.style.display === 'block') {
+            answer.style.display = 'none';
+            icon.textContent = '+';
+          } else {
+            // (Optional: Close all before opening, for accordion effect)
+            document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+            document.querySelectorAll('.faq-icon').forEach(i => i.textContent = '+');
+            answer.style.display = 'block';
+            icon.textContent = '−';
+          }
+        });
+      });
+      // Hide all answers initially
+      document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+    }
+
+    includeHTML("layout-placeholder", "layout.html", function() {
       const content = document.getElementById("content-to-load").innerHTML;
       const layoutMain = document.querySelector("#layout-placeholder main");
       if (layoutMain) layoutMain.innerHTML = content;
-
       initNavEvents();
-
-      // ✅ FAQ toggle logic goes here (after content is injected)
-      document.querySelectorAll('.faq-question').forEach(btn => {
-        btn.addEventListener('click', function () {
-          const item = btn.parentElement;
-          document.querySelectorAll('.faq-item').forEach(i => {
-            if (i !== item) i.classList.remove('active');
-          });
-          item.classList.toggle('active');
-        });
-      });
+      // HERE: initialize careers page FAQ logic!
+      initCareersFAQEvents();
     });
   </script>
 </body>

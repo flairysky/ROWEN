@@ -1,133 +1,16 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="assets/images/Slide10-removebg-preview.png">
-  <title>Rowen Education</title>
-  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="style.css">
-<style>
-    html, body {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      height: 100%;
-      font-family: 'Playfair Display', serif;
-    }
-
-    body {
-      min-height: 100vh;
-      background: #f9f9f9;
-    }
-
-    header {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 80px;
-      background: #fff;
-      color: #182947;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.03);
-      z-index: 100;
-      display: flex;
-      align-items: center;
-    }
-
-    nav {
-      display: flex;
-      align-items: center;
-      width: 100%;
-      justify-content: space-between;
-      padding: 0 24px;
-      max-width: 900px;
-      margin: 0 auto;
-    }
-
-    .logo img {
-      height: 48px;
-    }
-
-    .nav-links {
-      list-style: none;
-      display: flex;
-      gap: 24px;
-      margin: 0;
-      padding: 0;
-      align-items: center;
-      transition: none;
-    }
-    .nav-links li { position: relative; }
-    .nav-links a {
-      text-decoration: none;
-      color: #182947;
-      font-weight: 600;
-      font-size: 1em;
-      transition: color 0.15s;
-      padding: 8px 0;
-      display: block;
-    }
-    .nav-links a:hover { color: #E1B33B; }
-
-    .hamburger {
-      display: none;
-      background: none;
-      border: none;
-      font-size: 2em;
-      color: #182947;
-      cursor: pointer;
-      margin-left: 12px;
-      z-index: 101;
-    }
-
-    @media (max-width: 900px) {
-      .nav-links {
-        display: none;
-        flex-direction: column;
-        background: #182947;
-        position: absolute;
-        top: 74px;
-        left: 0;
-        width: 100vw;
-        z-index: 1100;
-        box-shadow: 0 2px 8px rgba(0,0,0,0.10);
-      }
-      .nav-links.open {
-        display: flex;
-      }
-      .hamburger {
-        display: block;
-      }
-    }
-
-    main {
-      max-width: 900px;
-      margin: 80px auto 0 auto; /* Push below header */
-      background: #fff;
-      border-radius: 12px;
-      box-shadow: 0 2px 10px rgba(0,0,0,0.04);
-      padding: 32px 24px;
-      box-sizing: border-box;
-      min-width: 0;
-      overflow-x: hidden;
-    }
-    
-  </style>
-
-</head>
-<body>
-
+<!-- layout.html -->
+<div id="page-wrapper">
   <header>
-    <nav>
-      <!-- Logo Left -->
+  <nav>
+    <div class="nav-container">
+      <!-- Logo -->
       <div class="logo">
         <a href="index.html">
           <img src="assets/images/newlogoycrop-removebg-preview.png" alt="Rowen Education Logo" />
         </a>
       </div>
-      <!-- Nav Links Center -->
+
+      <!-- Center Nav Links -->
       <ul class="nav-links" id="navLinks">
         <li class="dropdown">
           <a href="services.html">Services</a>
@@ -156,11 +39,10 @@
             <li><a href="https://lydian-consonant-2dd.notion.site/Welcome-Rowen-Blog-22dd622d17fe80c2b26bebeb1eff3565" target="_blank" rel="noopener noreferrer">Blog</a></li>
           </ul>
         </li>
-        <li>
-          <a href="theinstitute.html">Institute</a>
-        </li>
+        <li><a href="theinstitute.html">Institute</a></li>
       </ul>
-      <!-- Nav Right -->
+
+      <!-- Right: CTA + Language -->
       <div class="nav-right">
         <div class="cta-wrapper">
           <a href="contactformstudent.html">
@@ -174,15 +56,18 @@
           </select>
         </div>
       </div>
-      <!-- Hamburger for Mobile -->
+
+      <!-- Hamburger Icon -->
       <button class="hamburger" id="hamburger-btn" aria-label="Open Menu">
         <i class="fas fa-bars"></i>
       </button>
-    </nav>
-  </header>
-  <main>
-    
-  </main>
+    </div>
+  </nav>
+</header>
+
+
+  <main></main>
+
   <footer>
     <div class="footer-columns">
       <div class="footer-col">
@@ -219,42 +104,5 @@
       <span><a href="terms.html">Terms of Use</a> and <a href="policy.html">Privacy Policy</a></span>
     </div>
   </footer>
-
-  <script>
-    // Hamburger menu toggle
-    const hamburger = document.getElementById('hamburger-btn');
-    const navLinks = document.getElementById('navLinks');
-    hamburger.addEventListener('click', (e) => {
-      e.stopPropagation();
-      navLinks.classList.toggle('open');
-    });
-    // Dropdown toggle for mobile (click to open)
-    document.querySelectorAll('.dropdown > a').forEach(link => {
-      link.addEventListener('click', function(e) {
-        if (window.innerWidth <= 900) {
-          e.preventDefault();
-          document.querySelectorAll('.dropdown-content').forEach(ul => {
-            if (ul !== this.nextElementSibling) ul.style.display = 'none';
-          });
-          const dropdown = this.nextElementSibling;
-          dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
-        }
-      });
-    });
-    window.addEventListener('click', function(e) {
-      if (window.innerWidth <= 900 && !e.target.closest('.nav-links') && !e.target.closest('#hamburger-btn')) {
-        navLinks.classList.remove('open');
-        document.querySelectorAll('.dropdown-content').forEach(ul => ul.style.display = 'none');
-      }
-    });
-    window.addEventListener('resize', function() {
-      if (window.innerWidth > 900) {
-        navLinks.classList.remove('open');
-        document.querySelectorAll('.dropdown-content').forEach(ul => ul.style.display = '');
-      }
-    });
-  </script>
-  
-</body>
-</html>
+</div>
 
