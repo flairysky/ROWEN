@@ -254,32 +254,7 @@
       }
     });
   </script>
-  <script>
-    function includeHTML(id, url, cb) {
-      fetch(url)
-        .then(response => {
-          if (!response.ok) throw new Error('Failed to load ' + url + ': ' + response.status);
-          return response.text();
-        })
-        .then(data => {
-          document.getElementById(id).innerHTML = data;
-          if (cb) cb();
-        })
-        .catch(err => {
-          console.error('Error including', url, err);
-        });
-    }
-
-    // Load the layout, then inject this page's content
-    includeHTML("layout-placeholder", "layout.html", function() {
-      var content = document.getElementById("content-to-load").innerHTML;
-      var layoutMain = document.querySelector("#layout-placeholder main");
-      if (layoutMain) {
-        layoutMain.innerHTML = content;
-      }
-      // (OPTIONAL) re-initialize any JS unique to this subpage here, after content loads
-    });
-  </script>
+  
 </body>
 </html>
 
