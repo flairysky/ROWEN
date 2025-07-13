@@ -1888,3 +1888,78 @@ main {
     border-radius: 8px;
   }
 }
+
+
+.stories-slider-section {
+  padding: 40px 20px;
+  background: #f9f9f9;
+  text-align: center;
+}
+
+.slider-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+  max-width: 900px;
+  margin: 0 auto;
+  position: relative;
+}
+
+.slider-arrow {
+  background: none;
+  border: none;
+  font-size: 2rem;
+  color: #0a2f56;
+  cursor: pointer;
+}
+
+.slider-content {
+  max-width: 700px;
+  min-height: 200px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px 24px;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease-in-out;
+}
+
+.story-title {
+  font-weight: 700;
+  font-size: 1.25rem;
+  margin-bottom: 12px;
+  color: #082741;
+}
+
+.story-paragraph {
+  margin-bottom: 10px;
+  color: #333;
+  font-size: 1rem;
+  line-height: 1.7;
+}
+
+
+.story-title {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.story-name {
+  font-weight: 400;
+  font-style: italic;
+  font-size: 1rem;
+  color: #555;
+}
+
+.story-author {
+  font-style: italic;
+  margin-bottom: 8px;
+  color: #555;
+}
+
+.story-paragraph {
+  margin-bottom: 18px;
+  line-height: 1.6;
+}
+

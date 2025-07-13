@@ -34,10 +34,27 @@
     <section class="team-hero">
   <h2>STUDENTS' STORIES</h2>
   <div class="red-underline"></div>
+  <p class="team-description">
+    Hear from other students about their unique academic pathways</p>
   </section>
-  <section class="description-section">
   
-  </section>
+  <section class="stories-slider-section">
+  <div class="slider-container">
+    <button class="slider-arrow left" onclick="changeSlide(-1)">
+      <i class="fas fa-chevron-left"></i>
+    </button>
+
+    <div class="slider-content" id="sliderContent">
+      <!-- Slides will be inserted dynamically -->
+    </div>
+
+    <button class="slider-arrow right" onclick="changeSlide(1)">
+      <i class="fas fa-chevron-right"></i>
+    </button>
+  </div>
+</section>
+
+
   </div>
   </div>
   <script>
@@ -96,6 +113,104 @@
       if (layoutMain) layoutMain.innerHTML = content;
       initNavEvents();
     });
+
+    const stories = [
+  {
+  name: "Dan R.",
+  title: "From NYU to Cornell: A Journey of Growth",
+  qa: [
+    {
+      question: "Why did you choose NYU and then decide to transfer to Cornell?",
+      answer: "As crazy (and expensive) as it may sound, I applied to about 14 different colleges and universities during my senior year of high school. It wasn’t so much that I didn’t know where I wanted to go, but more that I wanted to go everywhere! I looked at schools all across the United States, from New York to Chicago to Los Angeles. In the end, I was fortunate enough to get accepted to the majority of places where I applied. Then came the difficult decision of choosing where to go."
+    },
+    {
+      question: "",
+      answer: "I was actually waitlisted from Cornell University and was choosing between Berkeley, University of Chicago and NYU. I ended up being given a guaranteed option to transfer to Cornell after my first year, so was really just deciding where to spend that one year before ending up at my final destination. I chose NYU to be in the center of everything. New York has it all – Broadway, museums, great restaurants, etc. The university itself is world renowned, especially for business and the arts, and I couldn’t turn down the opportunity to study in the heart of the East Village of NYC."
+    },
+    {
+      question: "",
+      answer: "Eventually though, I did take Cornell up on the transfer option and moved to Ithaca, NY for my second year of school. Cornell had the more traditional, Ivy League, campus environment that I craved. The School of Industrial and Labor Relations is the best there is, and I knew I wanted to learn more about the people side of business."
+    },
+    {
+      question: "What did you like about your university the most?",
+      answer: "The best thing about being at NYU was being literally in the center of everything. On my way to class each day, I would pass by artists, people in business, and even the occasional celebrity. There’s no official campus for NYU, you’re just a New Yorker walking through Washington Square Park like everybody else, only you’re heading to class to learn about comparative politics or Roman history. Because of our location, it wasn’t uncommon for assignments to incorporate aspects of New York life, such as class trips to the Metropolitan Museum of Art or National History Museum to get an up-close view at what we were learning about."
+    },
+    {
+      question: "",
+      answer: "Cornell, on the other hand, is fairly secluded in upstate New York and therefore has more to offer in terms of a traditional college experience. I absolutely loved the grassy quads, the incredible architecture of the buildings, and the historical “traditions” such as Dragon Day or Slope Day (look them up if interested!). I truly felt like I was in an intellectual bubble of higher learning that has shaped who I am today."
+    },
+    {
+      question: "What did you not expect that pleasantly surprised you?",
+      answer: "As cliché as it may sound, the two absolute best surprises and experiences I had while in school were meeting new people and going through personal development & growth. Right from the beginning, I had the mindset that college life was going to be an amazing and incredible journey. At both universities, the people I met truly made me a better person, while the experiences I had helped me to grow and explore my passions in life. The good food in the dining halls was also a nice surprise."
+    },
+    {
+      question: "What advice would you give to students who are preparing to apply to demanding universities?",
+      answer: "During the application process, it’s important to show universities that you know about them and that you also know yourself. What they’re looking for is for you to identify why you’re interested in joining their community and what you can bring to the table. After all, it’s not just for 3 or 4 years – it’s something that you can be a part of for the rest of your life. I do think it’s important to differentiate yourself in some way. Many people have good grades or strong extracurriculars. What’s important is that you incorporate personal aspects of your own life and upbringing into the process to show why you’re the best candidate."
+    }
+  ]
+}
+
+,
+  {
+    title: "Overcoming Doubts, Landing at UCL",
+    paragraphs: [
+      "I struggled with self-doubt and indecision throughout high school.",
+      "Rowen Education’s mentors gave me structure and courage.",
+      "I’m now studying psychology at University College London."
+    ]
+  },
+  {
+    title: "Dreaming Big: ETH Zurich",
+    paragraphs: [
+      "My dream was always ETH Zurich, but I didn’t know how to stand out.",
+      "The consultation helped me develop a strategic and compelling application.",
+      "Now I’m here, loving every moment of my studies!"
+    ]
+  }
+];
+
+let currentStoryIndex = 0;
+
+function displayStory(index) {
+  const story = stories[index];
+  const contentDiv = document.getElementById('sliderContent');
+  
+  let slideHTML = `<div class="story-slide">`;
+
+  slideHTML += `<div class="story-title">${story.title}</div>`;
+
+  if (story.name) {
+    slideHTML += `<div class="story-author"><em>— ${story.name}</em></div>`;
+  }
+
+  if (story.qa) {
+    slideHTML += story.qa.map(entry => `
+      <div class="story-paragraph">
+        ${entry.question ? `<strong>${entry.question}</strong><br>` : ''}
+        ${entry.answer}
+      </div>
+    `).join('');
+  } else if (story.paragraphs) {
+    slideHTML += story.paragraphs.map(p => `
+      <div class="story-paragraph">${p}</div>
+    `).join('');
+  }
+
+  slideHTML += `</div>`; // close .story-slide
+  contentDiv.innerHTML = slideHTML;
+}
+
+
+
+function changeSlide(step) {
+  currentStoryIndex = (currentStoryIndex + step + stories.length) % stories.length;
+  displayStory(currentStoryIndex);
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+  displayStory(currentStoryIndex);
+});
+
   </script>
 </body>
 </html>
