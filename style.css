@@ -1697,8 +1697,9 @@ margin-bottom: 24px;
 }
 
 .master-btn:hover {
-  background: #082741;
-  color: #fff;
+  background: #0a2941;
+  color: #F7BE20;
+  border-color: white;
 }
 
 .master-note {
@@ -1825,8 +1826,9 @@ margin-bottom: 24px;
 }
 
 .bachelor-btn:hover {
-  background: #082741;
-  color: #fff;
+  background: #0a2941;
+  color: #F7BE20;
+  border-color: white;
 }
 
 .bachelor-note {
