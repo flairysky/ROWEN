@@ -1838,11 +1838,28 @@ main {
   }
 }
 
+/* CONTENT CONTAINER */
 .content-container {
   width: 100%;
   max-width: 1000px;
   padding: 24px;
+  margin: 0 auto;
   background-color: #ffffff;
   border-radius: 16px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.05);
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .content-container {
+    padding: 16px;
+    border-radius: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .content-container {
+    padding: 12px;
+    border-radius: 8px;
+  }
 }
