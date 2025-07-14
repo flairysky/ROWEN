@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Services | Rowen Education</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link rel="icon" type="image/png" href="assets/images/Slide10-removebg-preview.png">
+
+    <!-- Open Graph Meta Tags for Social Sharing -->
+  <meta property="og:title" content="Rowen Education">
+  <meta property="og:description" content="Design your academic journey to be more exciting than your dreams.
+">
+  <meta property="og:image" content="https://roweneducation.com/assets/images/Slide10-removebg-preview.png">
+  <meta property="og:url" content="https://roweneducation.com/">
+  <meta property="og:type" content="website">
+
+  <!-- Twitter Card Meta Tags -->
+  <meta name="twitter:card" content="https://roweneducation.com/assets/images/Slide10-removebg-preview.png">
+  <meta name="twitter:title" content="Rowen Education">
+  <meta name="twitter:description" content="Design your academic journey to be more exciting than your dreams.
+
+">
+  <meta name="twitter:image" content="https://roweneducation.com/assets/images/Slide10-removebg-preview.png">
+  
+</head>
+<body>
+  <div id="layout-placeholder"></div>
+  <div id="content-to-load" style="display:none;">
+    <div class="content-container">
+    <section class="team-hero">
+  <h2>ACADEMIC GUIDANCE</h2>
+  <div class="red-underline"></div>
+  <p class="team-description">
+    We are here to help students go beyond their wildest dreams!
+  </p>
+  </section>
+<div class="counseling-columns">
+  <!-- First Row -->
+  <div class="counseling-row">
+    <!-- High Schools -->
+    <div class="counseling-card">
+      
+      <div class="icon-circle">
+        <i class="fas fa-user-graduate"></i>
+      </div>
+      <h3>High Schools</h3>
+      <div class="red-bar"></div>
+      <p>
+        Help your high school students thrive with personalized, holistic support throughout their academic journey.
+        <br>We provide both in-person and online academic guidance, covering the entire spectrum of student needs and possibilities.
+        <br>Students gain access to our digital platform, where they can explore their curiosity independently,
+        <br>and also benefit from direct conversations with our academic advisors.
+        <br>This powerful blend of technology and human contact allows students unlock their full potential and reach goals they never thought possible.
+      </p>
+      <a href="highschools.html" class="detail-btn">Detail</a>
+    </div>
+      <!-- High School Students -->
+    <div class="counseling-card">
+      <div class="icon-circle">
+        <i class="fas fa-user-graduate"></i>
+      </div>
+      <h3>High School Students</h3>
+      <div class="red-bar"></div>
+      <p>
+        Make the most of your high school years.  
+        <br>We will guide you throughout your studies, helping you navigate classes, extracurricular opportunities, and preparation for further university studies.  
+        <br>We’ll help you choose the right next steps, optimize your learning strategies, and unlock your potential for learning and curiosity.  
+        <br>You can contact us directly — or tell your high school about us if they don’t collaborate with us yet!
+      </p>
+
+      <a href="highschoolers.html" class="detail-btn">Detail</a>
+    </div>
+    </div>
+  </div>
+
+  <!-- Second Row -->
+  <div class="counseling-row">
+        <!-- Bachelor’s Studies -->
+    <div class="counseling-card">
+      <div class="icon-circle">
+        <i class="fas fa-graduation-cap"></i>
+      </div>
+      <h3>Bachelor’s Students</h3>
+      <div class="red-bar"></div>
+      <p>
+        Discover your options after high school.<br>
+        Choose the university of your dreams and become a successful applicant.<br>
+        If you’re already at university, we’ll help you navigate your entire experience, academically and beyond,<br>
+        so you can make the most of it on all levels and also progress towards an ideal graduate program.
+      </p>
+
+      <a href="bachelorstudents.html" class="detail-btn">Detail</a>
+    </div>
+    
+    <!-- Master’s Studies -->
+    <div class="counseling-card">
+      <div class="icon-circle">
+        <i class="fas fa-chart-bar"></i>
+      </div>
+      <h3>Master’s Students</h3>
+      <div class="red-bar"></div>
+        <p>
+          Find the right master’s program to help you transition smoothly into professional life and unlock new career opportunities.<br>
+          If you’re already enrolled in a graduate program, we can guide you through the entire experience, saving you time and stress.
+        </p>
+      <a href="masterstudents.html" class="detail-btn">Detail</a>
+    </div>
+  </div>
+</div>
+
+
+
+
+
+  <div class="counseling-columns">
+    <!-- High Schools and Academic Institutions -->
+    
+    
+</section>
+
+  </div>
+</div>
+  <script>
+    function includeHTML(id, url, cb) {
+      fetch(url)
+        .then(response => {
+          if (!response.ok) throw new Error('Failed to load ' + url + ': ' + response.status);
+          return response.text();
+        })
+        .then(data => {
+          document.getElementById(id).innerHTML = data;
+          if (cb) cb();
+        })
+        .catch(err => {
+          console.error('Error including', url, err);
+        });
+    }
+
+    function initNavEvents() {
+      const hamburger = document.getElementById('hamburger-btn');
+      const navLinks = document.getElementById('navLinks');
+      if (!hamburger || !navLinks) return;
+      hamburger.addEventListener('click', (e) => {
+        e.stopPropagation();
+        navLinks.classList.toggle('open');
+      });
+      document.querySelectorAll('.dropdown > a').forEach(link => {
+        link.addEventListener('click', function(e) {
+          if (window.innerWidth <= 900) {
+            e.preventDefault();
+            document.querySelectorAll('.dropdown-content').forEach(ul => {
+              if (ul !== this.nextElementSibling) ul.style.display = 'none';
+            });
+            const dropdown = this.nextElementSibling;
+            dropdown.style.display = (dropdown.style.display === 'block') ? 'none' : 'block';
+          }
+        });
+      });
+      window.addEventListener('click', function(e) {
+        if (window.innerWidth <= 900 && !e.target.closest('.nav-links') && !e.target.closest('#hamburger-btn')) {
+          navLinks.classList.remove('open');
+          document.querySelectorAll('.dropdown-content').forEach(ul => ul.style.display = 'none');
+        }
+      });
+      window.addEventListener('resize', function() {
+        if (window.innerWidth > 900) {
+          navLinks.classList.remove('open');
+          document.querySelectorAll('.dropdown-content').forEach(ul => ul.style.display = '');
+        }
+      });
+    }
+
+    includeHTML("layout-placeholder", "layout.html", function() {
+      const content = document.getElementById("content-to-load").innerHTML;
+      const layoutMain = document.querySelector("#layout-placeholder main");
+      if (layoutMain) layoutMain.innerHTML = content;
+      initNavEvents();
+    });
+  </script>
+</body>
+</html>
