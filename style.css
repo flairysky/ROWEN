@@ -2048,7 +2048,7 @@ main {
 
 /* Subscribe button */
 .newsletter-form button {
-  background-color: #002f5e;        /* Match footer background */
+  background-color: #082741;        /* Match footer background */
   color: #ffffff;                   /* White text */
   border: 2px solid #ffffff;       /* White border */
   border-radius: 999px;
@@ -2128,7 +2128,7 @@ footer {
 
 /* Main discussion form background */
 .custom-discussion-form {
-  background: #042433;
+  background: #082741;
   padding: 32px 20px;
   border-radius: 20px;
   max-width: 540px;
@@ -2194,7 +2194,7 @@ footer {
 .custom-discussion-form input[type="radio"],
 .custom-discussion-form input[type="checkbox"] {
   margin-right: 7px;
-  accent-color: #042433;
+  accent-color: #082741;
   transform: scale(1.15);
 }
 
@@ -2210,7 +2210,7 @@ footer {
 
 /* Buttons */
 .custom-discussion-form button[type="submit"] {
-  background-color: #042433;
+  background-color: #082741;
   color: #fff;
   border: 2px solid #fff;
   border-radius: 999px;
@@ -2225,7 +2225,7 @@ footer {
 .custom-discussion-form button[type="submit"]:hover {
   color: #ffc107;
   border-color: #ffc107;
-  background-color: #042433;
+  background-color: #082741;
 }
 
 /* Make privacy/terms links stand out and not break */
