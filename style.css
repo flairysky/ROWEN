@@ -981,14 +981,14 @@ footer {
   z-index: -1;
 }
 
-/* dark veil for readability */
+/* dark veil for readability
 .hero-video-container::before {
   content: "";
   position: absolute;
   inset: 0;
   background: rgba(0, 0, 0, 0.30);
   z-index: 1;
-}
+}*/
 
 /* ─────────── overlay text & button ─────────── */
 .hero-overlay {
