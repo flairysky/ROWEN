@@ -38,17 +38,52 @@
     Arrange a non-binding discussion with one of our team members
   <br> about possible opportunities for students of your high school or other academic institution.</p>
   </section>
-      <div class="form-container">
-      <iframe 
-        src="https://docs.google.com/forms/d/e/1FAIpQLSdQyWnqSayVee942SPcqv9umlev3v8GaADItoED144e3y1csQ/viewform?embedded=true"
-        width="640"
-        height="1211"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0">
-        Loading…
-      </iframe>
-    </div>
+      <form
+  action="https://formspree.io/f/movlvkkw"
+  method="POST"
+  class="custom-discussion-form"
+>
+  <h2>Contact Form For Academic Institutions</h2>
+
+  <label>
+    What is your full name?<span style="color:red">*</span><br>
+    <input type="text" name="full_name" required placeholder="Your full name">
+  </label>
+
+  <label>
+    What kind of academic institution do you represent?<span style="color:red">*</span><br>
+    <input type="checkbox" name="institution_type" value="High School" required> High School<br>
+    <input type="checkbox" name="institution_type" value="University"> University<br>
+    <input type="checkbox" name="institution_type" value="Other"> Other
+  </label>
+
+  <label>
+    What is the name of your academic institution?<span style="color:red">*</span><br>
+    <input type="text" name="institution_name" required placeholder="Institution name">
+  </label>
+
+  <label>
+    Insert the webpage of your academic institution<br>
+    <input type="text" name="institution_webpage" placeholder="e.g. https://www.university.edu">
+  </label>
+
+  <label>
+    What is your email address?<span style="color:red">*</span><br>
+    <input type="email" name="confirm_email" required placeholder="Enter your email address">
+  </label>
+
+  <label>
+    <a href="policy.html" target="_blank">Privacy Policy</a> and <a href="terms.html" target="_blank">Terms of Use</a>.<span style="color:red">*</span>
+    <br>
+    <input type="checkbox" name="accept" required>
+    I agree with the Privacy Policy and Terms of Use of Rowen Education.<br>
+    <input type="checkbox" name="not_robot" required>
+    I am not a robot.
+  </label>
+
+  <button type="submit">Send</button>
+</form>
+
   </div>
   </div>
 

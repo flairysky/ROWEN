@@ -2109,6 +2109,8 @@ main {
   margin-top: 0 !important;
   padding-top: 0 !important;
 }
+
+/* More Footer */
 .footer-row,
 .footer-content,
 .footer-columns,
@@ -2122,4 +2124,128 @@ main {
 footer {
   margin-bottom: 0 !important;
   padding-bottom: 0 !important;
+}
+
+/* Main discussion form background */
+.custom-discussion-form {
+  background: #042433;
+  padding: 32px 20px;
+  border-radius: 20px;
+  max-width: 540px;
+  margin: 32px auto;
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  color: #fff;
+  font-family: inherit;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.09);
+}
+
+/* Headings */
+.custom-discussion-form h2 {
+  margin-top: 0;
+  margin-bottom: 0.2em;
+  font-size: 2em;
+  color: #fff;
+  font-weight: 700;
+}
+
+.custom-discussion-form p {
+  margin-top: 0;
+  color: #fff;
+  font-size: 1em;
+}
+
+/* Each field label block */
+.custom-discussion-form label {
+  display: block;
+  font-size: 1em;
+  color: #fff;
+  margin-bottom: 6px;
+  margin-top: 4px;
+  font-weight: 500;
+}
+
+/* Input, textarea, select fields */
+.custom-discussion-form input[type="text"],
+.custom-discussion-form input[type="email"],
+.custom-discussion-form input[type="number"],
+.custom-discussion-form textarea {
+  width: 100%;
+  padding: 10px 14px;
+  margin-top: 4px;
+  border-radius: 999px;
+  border: none;
+  outline: none;
+  background: #fff;
+  color: #042433;
+  font-size: 15px;
+  margin-bottom: 6px;
+  box-sizing: border-box;
+  transition: border-color 0.2s;
+}
+
+.custom-discussion-form textarea {
+  border-radius: 12px;
+  min-height: 60px;
+}
+
+/* For radio and checkbox fields, make options inline and spaced */
+.custom-discussion-form input[type="radio"],
+.custom-discussion-form input[type="checkbox"] {
+  margin-right: 7px;
+  accent-color: #042433;
+  transform: scale(1.15);
+}
+
+.custom-discussion-form input[type="radio"] + span,
+.custom-discussion-form input[type="checkbox"] + span {
+  margin-right: 18px;
+}
+
+/* Field group spacing */
+.custom-discussion-form label:not(:last-child) {
+  margin-bottom: 8px;
+}
+
+/* Buttons */
+.custom-discussion-form button[type="submit"] {
+  background-color: #042433;
+  color: #fff;
+  border: 2px solid #fff;
+  border-radius: 999px;
+  padding: 13px 0;
+  font-size: 1.1em;
+  font-weight: 700;
+  cursor: pointer;
+  margin-top: 10px;
+  transition: all 0.2s;
+}
+
+.custom-discussion-form button[type="submit"]:hover {
+  color: #ffc107;
+  border-color: #ffc107;
+  background-color: #042433;
+}
+
+/* Make privacy/terms links stand out and not break */
+.custom-discussion-form a {
+  color: #ffc107;
+  text-decoration: underline;
+  white-space: nowrap;
+}
+
+.custom-discussion-form a:hover {
+  color: white;
+}
+
+/* Responsive for mobile */
+@media (max-width: 600px) {
+  .custom-discussion-form {
+    padding: 18px 4vw;
+    max-width: 99vw;
+  }
+  .custom-discussion-form h2 {
+    font-size: 1.4em;
+  }
 }

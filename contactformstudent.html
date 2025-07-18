@@ -38,17 +38,79 @@
     Arrange a non-binding discussion with one of our team members
   <br> about possible opportunities for your academic journey.</p>
   </section>
-      <div class="form-container">
-      <iframe 
-        src="https://docs.google.com/forms/d/e/1FAIpQLSfUHtF4kwuvEwDOt8Svvf_-n4aCiAjOyEzeVX7wFMntOZK-Bg/viewform?embedded=true"
-        width="640"
-        height="1211"
-        frameborder="0"
-        marginheight="0"
-        marginwidth="0">
-        Loading…
-      </iframe>
-    </div>
+      <form
+  action="https://formspree.io/f/xgvzvnnz"
+  method="POST"
+  class="custom-discussion-form"
+>
+  <h2>Schedule a non-binding discussion.</h2>
+
+  <label>
+    Please indicate if you are a student or a guardian.<span style="color:red">*</span><br>
+    <input type="radio" name="role" value="student" required> Student<br>
+    <input type="radio" name="role" value="guardian" required> Guardian
+  </label>
+
+  <label>
+    What is your first name?<span style="color:red">*</span><br>
+    <input type="text" name="first_name" required placeholder="Your first name">
+  </label>
+
+  <label>
+    At what stage of your studies are you? (or your student if you are a guardian)<span style="color:red">*</span><br>
+    <input type="checkbox" name="stage" value="Highschooler (1.-2.year)"> Highschooler (1.-2.year)<br>
+    <input type="checkbox" name="stage" value="Highschooler (3.-4.year)"> Highschooler (3.-4.year)<br>
+    <input type="checkbox" name="stage" value="Bachelor Student"> Bachelor Student<br>
+    <input type="checkbox" name="stage" value="Master Student"> Master Student
+  </label>
+
+  <label>
+    Location of your studies. (The more specific the answer the more we can prepare for the discussion)<span style="color:red">*</span><br>
+    <input type="text" name="location" required placeholder="Your location or school">
+  </label>
+
+  <label>
+    Name of current school/university (optional)<br>
+    <input type="text" name="school" placeholder="School or University (optional)">
+  </label>
+
+  <label>
+    What topic would you like to discuss?<span style="color:red">*</span><br>
+    <input type="radio" name="topic" value="Learning strategies mentoring" required> Learning strategies mentoring<br>
+    <input type="radio" name="topic" value="General Academic guidance" required> General Academic guidance<br>
+    <input type="radio" name="topic" value="Extracurriculars" required> Extracurriculars<br>
+    <input type="radio" name="topic" value="Application for bachelor's degree" required> Application for bachelor's degree<br>
+    <input type="radio" name="topic" value="Application for master's degree" required> Application for master's degree<br>
+    <input type="radio" name="topic" value="Other" required> Other:
+    <input type="text" name="topic_other" placeholder="Please specify">
+  </label>
+
+  <label>
+    What is your email address?<span style="color:red">*</span><br>
+    <input type="email" name="email" required placeholder="Your email">
+  </label>
+
+  <label>
+    Promo Code (not compulsory)<br>
+    <input type="text" name="promo_code" placeholder="Promo code (optional)">
+  </label>
+
+  <label>
+    <a href="policy.html" target="_blank">Privacy Policy</a> and <a href="terms.html" target="_blank">Terms of Use</a>.<span style="color:red">*</span>
+    <br>
+    <input type="checkbox" name="accept" required>
+    I agree with the Privacy Policy and Terms of Use of Rowen Education.
+    <br>
+    <input type="checkbox" name="guardian" value="Guardian Acknowledgement">
+    You understand that if you are a student below 18 years old, there will have to be a guardian present at the first discussion.
+    <br>
+    <input type="checkbox" name="not_robot" required>
+    I am not a robot.
+  </label>
+
+  <button type="submit">Send</button>
+</form>
+
   </div>
   </div>
 
