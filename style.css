@@ -65,11 +65,14 @@ nav {
   .nav-container {
     flex-direction: column;
     align-items: flex-start;
+    border-radius: 20px;
   }
 
   .nav-links {
     flex-direction: column;
     width: 100%;
+    border-bottom-left-radius: 20px;
+    border-bottom-right-radius: 20px;
   }
 
   .nav-right {
@@ -1259,6 +1262,11 @@ footer {
   display: flex;
   justify-content: center;
   padding: 32px 16px;
+  margin-top: 40px;           /* ✅ spacing between previous section and form */
+  margin-bottom: 40px;        /* optional: spacing at the bottom */
+  background-color: #082741;  /* deep navy like in the example */
+  border-radius: 20px;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
 }
 
 .form-container iframe {
@@ -1266,11 +1274,13 @@ footer {
   max-width: 700px;
   height: 1200px;
   border: none;
+  border-radius: 12px; /* optional inside rounding */
 }
 
 @media (max-width: 768px) {
   .form-container {
-    padding-top: 80px; /* or whatever looks good */
+    padding-top: 32px;  /* ✅ don't push too far down */
+    margin-top: 32px;
   }
 }
 
@@ -2011,3 +2021,70 @@ main {
   line-height: 1.6;
 }
 
+/* Newsletter background container */
+.newsletter-container {
+  background-color: #08294D; /* Deep blue */
+  padding: 24px;
+  border-radius: 20px;
+  max-width: 360px;
+}
+
+/* Form layout */
+.newsletter-form {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+/* Input field */
+.newsletter-form input[type="email"] {
+  padding: 14px 18px;
+  border: none;
+  border-radius: 999px;
+  font-size: 14px;
+  font-family: inherit;
+  outline: none;
+}
+
+/* Subscribe button */
+.newsletter-form button {
+  background-color: #002f5e;        /* Match footer background */
+  color: #ffffff;                   /* White text */
+  border: 2px solid #ffffff;       /* White border */
+  padding: 14px;
+  border-radius: 999px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+/* Hover effect: yellow border and text */
+.newsletter-form button:hover {
+  color: #ffc107;                  /* Yellow text */
+  border-color: #ffc107;          /* Yellow border */
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  font-size: 13px;
+  color: white;
+  line-height: 1.4;
+}
+
+.checkbox-label input[type="checkbox"] {
+  transform: scale(1.3);
+  margin-top: 2px;
+  accent-color: white;
+}
+
+.checkbox-label a {
+  color: #ffc107; /* Yellow for visibility */
+  text-decoration: underline;
+}
+
+.checkbox-label a:hover {
+  color: #fffacd;
+}
