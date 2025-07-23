@@ -1,0 +1,137 @@
+
+/* Make main container transparent */
+.content-container {
+  background: transparent !important;
+}
+
+/* Make hero container transparent but keep text readable */
+.hero-video-container {
+  background: transparent !important;
+}
+
+/* Style for process section */
+#process {
+  background: transparent !important;
+}
+
+.process-steps {
+  background: transparent !important;
+}
+
+/* Style for testimonial section */
+.testimonial-slider {
+  background: transparent !important;
+}
+
+.team-more {
+  background: transparent !important;
+}
+
+/* Add white background only to text containers for readability */
+.hero-overlay h1,
+.process-heading,
+.testimonial,
+.team-more-content {
+  background: rgba(255, 255, 255, 0.8);
+  padding: 15px;
+  border-radius: 8px;
+  margin: 10px;
+}
+
+
+/* Target ALL containers and make them transparent */
+.content-container,
+.hero-video-container,
+#process,
+.process-steps,
+.step-box,
+.testimonial-slider,
+.slider-content,
+.testimonial,
+.team-more,
+.team-more-content,
+main,
+section,
+div[id*="container"],
+div[class*="container"],
+.process-heading {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Only add semi-transparent backgrounds to text elements */
+h1, h2, h3, p, .testimonial-text, .testimonial-author {
+  background: rgba(255, 255, 255, 0.6);
+  padding: 10px;
+  border-radius: 5px;
+  display: inline-block;
+}
+
+/* Exception for video container */
+.background-video {
+  background: none !important;
+}
+
+/* Target any white boxes/cards */
+[class*="box"],
+[class*="card"],
+[class*="panel"],
+[class*="content"] {
+  background: transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+}
+
+/* Override the transparent background for footer elements */
+footer h1, 
+footer h2, 
+footer h3, 
+footer p, 
+footer span,
+footer label,
+footer a,
+.footer-disclaimer,
+.social-media-heading,
+.footer-bottom *,
+.footer-col h3,
+.footer-col p,
+.footer-col span,
+.footer-social-icons a {
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  display: inline !important;
+}
+
+/* Make sure footer itself has solid background */
+footer {
+  background: #08254a !important;
+}
+
+.footer-bottom {
+  background: #06213e !important;
+}
+
+/* Restore original styles for subscribe section */
+.newsletter-container {
+  background: #08294D !important;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1) !important;
+}
+/* Remove white background from hero video overlay text */
+.hero-overlay {
+  background: transparent !important;
+}
+
+.hero-overlay h1 {
+  background: transparent !important;
+  padding: 0 !important;
+  border-radius: 0 !important;
+  display: block !important;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5); /* Optional: adds shadow to keep text readable */
+}
+
+/* Make sure the button doesn't get affected by the transparency rules */
+.hero-overlay .cta-btn {
+  background: #ffbb2f !important; /* Or whatever the original color was */
+}
